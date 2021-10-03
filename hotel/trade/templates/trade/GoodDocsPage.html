@@ -1,0 +1,65 @@
+{% extends 'docbase.html' %}
+{% load static %}
+{% block title %}{{title}}{% endblock title %}
+
+{% block DataArea %}
+<div class="row ">
+    <div class="col-md-10  ">
+    <h4>Приходные документы</h4></div>
+    <div class="col-md-1 mb-1" >
+        <a href="{% url 'AddDocPage' %}" > <div class="btn btn-warning shadow ml-5 btn-sm mt-1">Добавить</div></a></div>
+</div>
+<div style="display:block;overflow-y: auto; height:550px;"  >
+<table class="table table-bordered  table-hover table-sm ">
+    <thead class="thead-dark "><tr>
+    <th class="thead-dark"  >Дата</th>
+    <th class="text-center">Номер</th>
+   <th class="text-center">Поставщик</th>
+     <th class="text-center">Проведен</th>
+      <th class="text-center">Сумма по цене закупки</th>
+        <th class="text-center">Сумма по цене продажи</th>
+    </tr></thead>
+
+{% for item in page_obj %}
+<tr>
+ <td class="pt-2 pb-0"><a href="{% url 'EditUnitPage' item.pk %}" class="text-dark ">{{item.datadoc|date:"d-m-Y" }}</a></td>
+ <td class="pt-2 pb-0 text-center"><a href="{% url 'EditUnitPage' item.pk %}" class="text-dark ">{{item.nomerdoc}}</a></td>
+   <td class="pt-2 pb-0"><a href="{% url 'EditUnitPage' item.pk %}" class="text-dark ">{{item.dealer}}</a></td>
+  {% if item.transaction == True %}
+    <td class="pt-2 pb-0 text-center  text-success" >
+         Да
+    </td>
+    {% else %}
+    <td class="pt-2 pb-0 text-center text-danger">
+       Нет
+    </td>
+  {% endif %}
+    <td class="pt-2 pb-0 text-right"> {{item.buytotal}}</td>
+    <td class="pt-2 pb-0 text-right"> {{item.saletotal}}</td>
+
+
+</tr>
+
+{% endfor %}
+
+</table>
+ </div>
+<div class="pagination text-end">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+
+            <a href="?page={{ page_obj.previous_page_number }}">Предыдущая</a>
+        {% endif %}
+
+        <span class="current">
+            Страница {{ page_obj.number }} из {{ page_obj.paginator.num_pages }}.
+        </span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">Следующая</a>
+
+        {% endif %}
+    </span>
+</div>
+{% endblock DataArea %}
+

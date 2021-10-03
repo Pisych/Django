@@ -1,0 +1,38 @@
+{% extends 'docbase.html' %}
+{% load static %}
+{% block title %}{{title}}{% endblock title %}
+
+{% block DataArea %}
+ {% csrf_token %}
+<div class="row ">
+    <div class="col-md-10  ">
+    <h4 >Приходный документ № {{ Doc.nomerdoc}} от {{Doc.datadoc}}</h4>
+    <h5>Поставщик: {{Doc.dealer}}</h5></div>
+    <div class="col-md-2 mb-1" >
+        </div>
+</div>
+
+
+
+<div style="display:block;overflow-y: auto; height:550px;"  >
+<table class="table table-bordered  table-hover mb-5 table-sm" >
+<thead class="thead-dark ">
+<tr>
+    <th class="thead-dark">Наименование товара</th>
+    <th class="text-center">Кол-во</th>
+    <th class="text-center">Ед.изм.</th>
+    <th class="text-center">Цена закупки</th>
+    <th class="text-center">Сумма закупки</th>
+    <th class="text-center">% </th>
+    <th class="text-center">Цена продажи</th>
+    <th class="text-center">Сумма продажи</th>
+    <th class="text-center">Х</th>
+ </tr>
+</thead>
+
+
+</table>
+</div>
+
+{% endblock DataArea %}
+

@@ -1,0 +1,31 @@
+{% extends 'docbase.html' %}
+
+
+
+
+{% block ListArea %}
+<h4>Торговля</h4>
+     <a href="{% url 'AddDoc' %}" class="btn btn-dark border border-white  nav-link mb-1">Продажа </a>
+       <a href="{% url 'DocList' %}" class="btn btn-dark border border-white  nav-link mb-1">Приходные документы</a>
+          <a href="{% url 'listPage' %}" class="btn btn-dark border border-white  nav-link mb-1">Документы по списанию</a>
+          <a href="{% url 'listPage' %}" class="btn btn-dark border border-white  nav-link mb-1">Документы по вводу остатков</a>
+
+<h4>Гостиница</h4>
+          <a href="{% url 'listPage' %}" class="btn btn-dark border border-white  nav-link mb-1">Регистрация</a>
+         <a href="{% url 'listPage' %}" class="btn btn-dark border border-white  nav-link mb-1">Выписка</a>
+
+
+<h4>Отчеты</h4>
+ <a href="{% url 'listPage' %}" class="btn btn-dark border border-white  nav-link mb-1">Печать отчетов</a>
+
+<h4>Настройки</h4>
+          <a href="{% url 'listPage' %}" class="btn btn-dark border border-white  nav-link mb-1">Справочники</a>
+{% endblock ListArea %}
+
+{% block DataArea %}
+DataArea - TradePage
+{% endblock DataArea %}
+
+{% block CheckArea %}
+CheckArea - TradePage
+{% endblock CheckArea %}

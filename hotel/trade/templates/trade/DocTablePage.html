@@ -1,0 +1,87 @@
+{% extends 'docbase.html' %}
+{% load static %}
+{% block title %}{{title}}{% endblock title %}
+
+{% block DataArea %}
+
+
+
+<div class="row ">
+    <div class="col-md-10  ">
+    <h4>Приходный документ № {{ lastdoc.nomerdoc}} от {{lastdoc.datadoc}}</h4>
+    <h5>Поставщик: {{lastdoc.dealer}}</h5>
+        {% if sumbuy.buytotal__sum == None %}
+    <h5>Сумма по цене закупки: 0.00 руб.</h5>
+        {% else %}
+       <h5>Сумма по цене закупки: {{sumbuy.buytotal__sum}} руб.</h5>
+        {% endif %}
+    {% if sumsale.saletotal__sum == None %}
+    <h5>Сумма по цене закупки: 0.00 руб.</h5>
+        {% else %}
+       <h5>Сумма по цене закупки: {{sumsale.saletotal__sum}} руб.</h5>
+        {% endif %}
+
+    </div>
+
+    <div class="col-md-2 mb-1 mt-2" >
+        <div> <a class="btn btn-sm btn-secondary btn-block" href="{% url 'DocList' %}">Реквизиты</a></div>
+
+       <div class="mt-1 mb-1"><a class="btn btn-sm btn-secondary" href="{% url 'DocTable' %}" >Добавить строку</a></div>
+
+        <div> <a class="btn btn-sm btn-secondary btn-block" href="{% url 'DocList' %}">Закрыть</a></div>
+
+        <!--<a href="{% url 'DocTable' %}" > <div class="btn btn-warning shadow ml-5 btn-sm mt-1">Добавить строку</div></a></--!></div>
+
+</div>
+
+
+
+<div style="display:block;overflow-y: auto; height:550px;"  >
+<table class="table table-bordered  table-hover mb-5 table-sm" >
+    <thead class="thead-dark "><tr>
+
+    <th class="thead-dark"  >Наименование товара</th>
+    <th class="text-center">Кол-во</th>
+    <th class="text-center">Ед.изм.</th>
+     <th class="text-center">Цена закупки</th>
+      <th class="text-center">Сумма закупки</th>
+      <th class="text-center">% </th>
+         <th class="text-center">Цена продажи</th>
+         <th class="text-center">Сумма продажи</th>
+         <th class="text-center">Х</th>
+
+    </tr></thead>
+  {% for item in doctable %}
+    <tr><td>{{item.title}}</td>
+         <td class="text-center">{{item.title.unit.title}}</td>
+        <td style="text-align:right">{{item.volume}}</td>
+        <td style="text-align:right">{{item.buyprice}}</td>
+        <td style="text-align:right">{{item.buytotal}}</td>
+        <td style="text-align:right">{{item.percent}}</td>
+        <td style="text-align:right">{{item.saleprice}}</td>
+        <td style="text-align:right">{{item.saletotal}}</td>
+
+    </tr>
+    {% endfor %}
+    <tr class="bg-dark">
+        <td style="color:white"><strong>Итого:</strong></td>
+        <td colspan="3"></td>
+        {% if sumbuy.buytotal__sum == None %}
+        <td style="text-align:right;color:white"><strong>0.00</strong></td>
+        {% else %}
+        <td style="text-align:right;color:white"><strong>{{sumbuy.buytotal__sum}}</strong></td>
+       {% endif %}
+        <td colspan="2"></td>
+          {% if sumsale.saletotal__sum == None %}
+        <td style="text-align:right;color:white"><strong>0.00</strong></td>
+       {% else %}
+       <td style="text-align:right;color:white"><strong>{{sumsale.saletotal__sum}}</strong></td>
+        {% endif %}
+        <td></td>
+    </tr>
+</table>
+</div>
+<div>Итого:{{sumsale.saletotal__sum}}</div>
+
+{% endblock DataArea %}
+

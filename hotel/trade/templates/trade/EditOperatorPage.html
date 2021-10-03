@@ -1,0 +1,26 @@
+{% extends 'settingbase.html' %}
+{% load static %}
+{% block title %}{{title}}{% endblock title %}
+
+{% block DataArea %}
+
+    <h4>Администраторы</h4>
+
+
+
+    <form action="" method="post">
+   {% csrf_token %}
+    {{form.as_p}}
+<div class="text-end">
+     <button type="submit" class="btn btn-success btn-sm shadow">Изменить</button>
+     <a href="{% url 'OperatorPage' %}" class="btn btn-warning btn-sm shadow">Отмена </a>
+</div>
+    </form>
+
+
+
+
+
+
+{% endblock DataArea %}
+

@@ -1,0 +1,37 @@
+from django.db import models
+
+# Create your models here.
+class Contragent(models.Model):
+    title=models.CharField(max_length=50,verbose_name='Контрагент')
+    published=models.BooleanField(default=True,verbose_name='Отображать')
+
+class Unit(models.Model):
+    title=models.CharField(max_length=20,verbose_name='Единица измерения')
+    published = models.BooleanField(default=True, verbose_name='Отображать')
+
+class Operation(models.Model):
+    title=models.CharField(max_length=20,verbose_name='Действие')
+    published = models.BooleanField(default=True, verbose_name='Отображать')
+
+class Writeoff(models.Model):
+    title=models.CharField(max_length=40,verbose_name='Причина списания')
+    published = models.BooleanField(default=True, verbose_name='Отображать')
+
+class Payment(models.Model):
+    title=models.CharField(max_length=30,verbose_name='Вид оплаты')
+    published = models.BooleanField(default=True, verbose_name='Отображать')
+
+class Apartment(models.Model):
+    title=models.CharField(max_length=100,verbose_name='Вид номера')
+    place=models.IntegerField(verbose_name="Количество мест")
+    place_free=models.IntegerField(verbose_name='Свободные места')
+    price=models.DecimalField(max_digits=7,decimal_places=2,verbose_name='Стоимость места')
+    buzy=models.BooleanField(default=False,verbose_name='Занят')
+    published = models.BooleanField(default=True, verbose_name='Отображать')
+
+class Document(models.Model):
+    number=models.CharField(max_length=40,verbose_name='Номер документа')
+    doc_date=models.DateField(verbose_name='Дата документа')
+    created_at=models.DateTimeField(auto_now_add=True,verbose_name='Дата создания')
+    updated_at=models.DateTimeField(auto_now=True,verbose_name='Дата изменения')
+    published=models.BooleanField(default=True,verbose_name='Отображать')

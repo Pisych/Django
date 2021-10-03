@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css'%}">
+
+    <title>Title</title>
+</head>
+<body >
+
+<div class="container border shadow "  >
+<div class="row " >
+    <div class="col-md-11">
+        <h3 >Гостиница АО ЕнСПК (Настройки)</h3></div>
+<div class=" col-md-1  text-center  ">
+
+    <a href="admin/">Вход</a>
+</div>
+</div>
+    <div class="row " >
+     <div class="col-md-2 bordered shadow bg-warning "  >
+         <div class="text-secondary>" ><h4 class="mb-2">Справочники</h4></div>
+     <a href="{% url 'GoodPage' %}" class="btn btn-dark border border-white   nav-link mb-1">Номенклатура</a>
+       <a href="{% url 'CategoryPage' %}" class="btn btn-dark  border border-white  nav-link mb-1">Категории</a>
+          <a href="{% url 'UnitPage' %}" class="btn btn-dark  border border-white  nav-link mb-1">Единицы измерения</a>
+          <a href="{% url 'CustomerPage' %}" class="btn btn-dark border border-white  nav-link mb-1">Контрагенты</a>
+          <a href="{% url 'DealerPage' %}" class="btn btn-dark border border-white  nav-link mb-1">Поставщики</a>
+          <a href="{% url 'tradePage' %}" class="btn btn-dark border border-white   nav-link mb-1">Реквизиты</a>
+         <a href="{% url 'PayPage' %}" class="btn btn-dark border border-white   nav-link mb-1">Виды оплаты</a>
+         <a href="{% url 'OperatorPage' %}" class="btn btn-dark border border-white   nav-link mb-1">Администраторы</a>
+ <a href="{% url 'tradePage' %}" class="btn btn-dark shadow border border-white  nav-link mb-1">Гостиничные номера</a>
+ <a href="{% url 'tradePage' %}" class="btn btn-dark shadow border border-white  nav-link mb-1">Главная страница</a>
+
+
+
+
+     </div>
+        <div class="col-md-10 bordered shadow " style="min-height:calc(100vh - 70px);" >
+
+            {% block DataArea %}{% endblock DataArea %}
+
+        </div>
+<div class="col-md-12 bordered shadow bg-warning text-right  " >
+
+            АО "ЕнСПК" - 2021
+        </div>
+
+</div>
+
+</div>
+
+</body>
+</html>

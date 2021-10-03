@@ -1,0 +1,84 @@
+{% extends 'docbase.html' %}
+{% load static %}
+{% block title %}{{title}}{% endblock title %}
+
+{% block DataArea %}
+<div class="row ">
+    <div class="col-md-10  ">
+    <h4>Приходный документ № {{ lastdoc.nomerdoc}} от {{lastdoc.datadoc}}</h4>
+    <h5>Поставщик: {{lastdoc.dealer}}</h5></div>
+    <div class="col-md-2 mb-1" >
+  </div>
+</div>
+<div style="display:block;overflow-y: auto; height:550px;"  >
+<table class="table table-bordered  table-hover table-sm ">
+    <thead class="thead-dark "><tr>
+    <th class="thead-dark"  ><small>Наименование</small></th>
+        <th class="text-center"><small>Кол-во</small></th>
+        <th class="text-center"><small>Цена закупки</small></th>
+        <th class="text-center"><small>Сумма закупки</small></th>
+        <th class="text-center"><small>%</small> </th>
+        <th class="text-center"><small>Цена продажи</small></th>
+        <th class="text-center"><small>Сумма продажи</small></th>
+
+
+    </tr></thead>
+<tr class="bg-secondary  ">
+    <td>
+    <form action="" method="post" enctype="multipart/form-data">
+   {% csrf_token %}
+    <div class="form-row ">
+<div class="col ">
+{{form.iddoc}} {{form.title}}
+</div>
+<td>
+  <div class="col ">
+      <span class="mt-1"> {{form.volume}}</span>
+</div>
+</td>
+ <td>
+  <div class="col ">
+      <span class="mt-1"> {{form.buyprice}}</span>
+</div>
+</td>
+ <td>
+  <div class="col ">
+      <span class="mt-1"> {{form.buytotal}}</span>
+</div>
+</td>
+    <td>
+  <div class="col ">
+      <span class="mt-1"> {{form.percent}}</span>
+</div>
+</td>
+    <td>
+  <div class="col ">
+      <span class="mt-1"> {{form.saleprice}}</span>
+</div>
+</td>
+    <td>
+  <div class="col ">
+      <span class="mt-1"> {{form.saletotal}}</span>
+</div>
+</td>
+</tr>
+    <tr><td colspan="7" style="text-align:right" class="bg-dark">
+
+     <button type="submit" class="btn btn-success  shadow btn-sm mt-1">Записать </button>
+     <a href="{% url 'DocView' %}" class="btn  shadow btn-sm mt-1 btn-secondary">Отмена </a>
+ </td>
+    </tr>
+
+
+
+
+
+</table>
+
+<div class="pagination text-end">
+
+</div>
+
+</div>
+{% endblock DataArea %}
+

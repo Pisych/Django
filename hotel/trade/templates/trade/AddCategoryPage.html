@@ -1,0 +1,27 @@
+{% extends 'settingbase.html' %}
+{% load static %}
+{% block title %}{{title}}{% endblock title %}
+
+{% block DataArea %}
+
+    <h4>Категории</h4>
+
+
+
+    <form action="" method="post" enctype="multipart/form-data">
+   {% csrf_token %}
+    {{form.as_p}}
+<div class="text-end">
+     <button type="submit" class="btn btn-success btn-sm shadow">Добавить</button>
+     <a href="{% url 'CategoryPage' %}" class="btn btn-warning btn-sm shadow">Отмена </a>
+</div>
+
+    </form>
+
+
+
+
+
+
+{% endblock DataArea %}
+

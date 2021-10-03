@@ -1,0 +1,34 @@
+{% extends 'settingbase.html' %}
+{% load static %}
+{% block title %}{{title}}{% endblock title %}
+
+{% block DataArea %}
+<div class="row">
+    <div class="col-md-10">
+    <h4>Единицы измерения</h4></div>
+    <div class="col-md-1 mb-1">
+        <a href="{% url 'AddUnitPage' %}" > <div class="btn btn-warning shadow ml-5 btn-sm mt-1">Добавить</div></a></div>
+
+
+
+
+
+
+</div>
+<table class="table table-bordered  table-hover  ">
+    <thead class="thead-dark "><tr>
+    <th class="thead-dark"  >Наименование</th>
+
+    <th class="text-center">Удалить</th>
+    </tr></thead>
+{% for item in data %}
+<tr>
+    <td class="pt-2 pb-0"><a href="{% url 'UnitPage' item.pk %}" class="text-dark lead"><strong>{{item.title}}</strong></a></td>
+
+    <td class="text-center pt-0 pb-0"><a href="{% url 'DeleteUnit' item.pk %}" ><img src="../media/del.jpg" class="mt-3" alt="..." width="20"  ></a></td>
+</tr>
+{% endfor %}
+</table>
+
+{% endblock DataArea %}
+

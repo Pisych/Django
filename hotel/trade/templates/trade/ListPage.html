@@ -1,0 +1,26 @@
+{% extends 'settingbase.html' %}
+
+
+{% block title %}{{title}}{% endblock title %}
+
+{% block ListArea %}
+<div class="text-secondary>" >Справочники</div>
+     <a href="{% url 'tradePage' %}" class="btn btn-secondary shadow nav-link mb-1">Номенклатура</a>
+       <a href="{% url 'UnitPage' %}" class="btn btn-secondary shadow nav-link mb-1">Категории</a>
+          <a href="{% url 'UnitPage' %}" class="btn btn-secondary shadow nav-link mb-1">Единицы измерения</a>
+          <a href="{% url 'tradePage' %}" class="btn btn-secondary nav-link mb-1">Контрагенты</a>
+          <a href="{% url 'tradePage' %}" class="btn btn-secondary shadow nav-link mb-1">Реквизиты</a>
+         <a href="{% url 'tradePage' %}" class="btn btn-secondary shadow nav-link mb-1">Виды оплаты</a>
+         <a href="{% url 'tradePage' %}" class="btn btn-secondary shadow nav-link mb-1">Кассиры</a>
+ <a href="{% url 'tradePage' %}" class="btn btn-secondary shadow nav-link mb-1">Кассиры</a>
+ <a href="{% url 'tradePage' %}" class="btn btn-secondary shadow nav-link mb-1">Гостиничные номера</a>
+          <a href="{% url 'tradePage' %}" class="btn btn-secondary shadow nav-link mb-1">Услуги гостиницы</a>
+{% endblock ListArea %}
+
+{% block DataArea %}
+DataArea - ListPage
+{% endblock DataArea %}
+
+{% block CheckArea %}
+CheckArea - ListPage
+{% endblock CheckArea %}

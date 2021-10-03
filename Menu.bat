@@ -1,0 +1,1 @@
+C:\st\dist\manage\manage.exe runserver --noreload 'http://127.0.0.1:8000'

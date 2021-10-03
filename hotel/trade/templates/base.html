@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+  <script src="{%static 'js/vue.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css'%}">
+    <title>Title2222</title>
+</head>
+<body  >
+
+<div class="container border shadow   ">
+<div class="row">
+    <div class="col-md-11">
+        <h3>Гостиница АО ЕнСПК </h3></div>
+<div class=" col-md-1  text-center  ">
+
+    <a href="admin/">Вход</a>
+</div>
+</div>
+    <div class="row ">
+     <div class="col-md-2 bordered shadow bg-warning"  >
+
+
+{% block ListArea %}{% endblock %}
+
+     </div>
+        <div class="col-md-6 bordered shadow " style="min-height:calc(100vh - 70px);">
+
+            {% block DataArea %}{% endblock %}
+        </div>
+        <div class="col-md-4 border shadow">
+
+            {% block CheckArea %}{% endblock %}
+        </div>
+        <div class="col-md-12 bordered shadow bg-warning text-right  " >
+
+            АО "ЕнСПК" - 2021<button class="btn btn-primary">111111</button>
+        </div>
+</div>
+</div>
+<script>
+    var app = new Vue({
+    delimiters:['{*','*}'],
+        el: '#app',
+        data:{
+        message:1,
+        price:1,
+        summ:1,
+        tax: 20
+        },
+    computed:{
+    summa: function(){
+
+    return (this.message * this.price *((this.tax/100) + 1)).toFixed(2);
+    }
+    }
+    })
+
+
+</script>
+
+</body>
+
+</html>

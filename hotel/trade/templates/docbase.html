@@ -1,0 +1,80 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+  <script src="{%static 'js/vue.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css'%}">
+    <title>Title2222</title>
+</head>
+<body  >
+
+<div class="container border shadow   ">
+<div class="row">
+    <div class="col-md-11">
+        <h3>Гостиница АО ЕнСПК </h3></div>
+<div class=" col-md-1  text-center  ">
+
+    <a href="admin/">Вход</a>
+</div>
+</div>
+    <div class="row ">
+     <div class="col-md-2 bordered shadow bg-warning"  >
+
+
+{% block ListArea %}
+ <h4>Торговля</h4>
+     <a href="{% url 'AddDoc' %}" class="btn btn-dark border border-white  nav-link mb-1">Продажа </a>
+       <a href="{% url 'DocList' %}" class="btn btn-dark border border-white  nav-link mb-1">Поступление</a>
+          <a href="{% url 'listPage' %}" class="btn btn-dark border border-white  nav-link mb-1">Списание</a>
+          <a href="{% url 'listPage' %}" class="btn btn-dark border border-white  nav-link mb-1">Ввод остатков</a>
+
+<h4>Гостиница</h4>
+          <a href="{% url 'listPage' %}" class="btn btn-dark border border-white  nav-link mb-1">Регистрация</a>
+         <a href="{% url 'listPage' %}" class="btn btn-dark border border-white  nav-link mb-1">Выписка</a>
+
+
+<h4>Отчеты</h4>
+ <a href="{% url 'listPage' %}" class="btn btn-dark border border-white  nav-link mb-1">Печать отчетов</a>
+
+<h4>Настройки</h4>
+          <a href="{% url 'listPage' %}" class="btn btn-dark border border-white  nav-link mb-1">Справочники</a>
+{% endblock ListArea %}
+
+
+
+
+
+     </div>
+        <div class="col-md-10 bordered shadow " style="min-height:calc(100vh - 70px);">
+
+            {% block DataArea %}{% endblock %}
+        </div>
+
+        <div class="col-md-12 bordered shadow bg-warning text-right  " >
+
+            АО "ЕнСПК" - 2021
+        </div>
+</div>
+</div>
+<script type="text/javascript">
+  function getResult(){
+    var volume = document.getElementById("id_volume");
+    var buyprice = document.getElementById("id_buyprice");
+    var buytotal = document.getElementById("id_buytotal");
+    var saleprice = document.getElementById("id_saleprice");
+    var saletotal = document.getElementById("id_saletotal");
+    var percent = document.getElementById("id_percent");
+
+
+    buytotal.value=Math.round(volume.value*buyprice.value);
+    saleprice.value= Math.round(buyprice.value*((percent.value/100)+1));
+    saletotal.value=Math.round(saleprice.value*volume.value);
+
+
+  }
+</script>
+
+</body>
+
+</html>

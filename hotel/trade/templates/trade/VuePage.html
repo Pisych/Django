@@ -1,0 +1,38 @@
+{% extends 'docbase.html' %}
+{% load static %}
+{% block ListArea %}
+
+<h4>Торговля</h4>
+     <a href="{% url 'VuePage' %}" class="btn btn-dark border border-white  nav-link mb-1">Продажа </a>
+       <a href="{% url 'listPage' %}" class="btn btn-dark border border-white  nav-link mb-1">Поступление</a>
+          <a href="{% url 'listPage' %}" class="btn btn-dark border border-white  nav-link mb-1">Списание</a>
+          <a href="{% url 'listPage' %}" class="btn btn-dark border border-white  nav-link mb-1">Ввод остатков</a>
+
+<h4>Гостиница</h4>
+          <a href="{% url 'listPage' %}" class="btn btn-dark border border-white  nav-link mb-1">Регистрация</a>
+         <a href="{% url 'listPage' %}" class="btn btn-dark border border-white  nav-link mb-1">Выписка</a>
+
+
+<h4>Отчеты</h4>
+ <a href="{% url 'listPage' %}" class="btn btn-dark border border-white  nav-link mb-1">Печать отчетов</a>
+
+<h4>Настройки</h4>
+          <a href="{% url 'listPage' %}" class="btn btn-dark border border-white  nav-link mb-1">Справочники</a>
+{% endblock ListArea %}
+{% block DataArea %}
+VueTest
+
+<div id="app">
+
+
+    <input v-model="price"  type="number" min=0 >
+
+
+
+<p>Итого: {* summa *}</p>
+</div>
+
+
+{% endblock DataArea %}
+
+

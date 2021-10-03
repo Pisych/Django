@@ -1,0 +1,26 @@
+{% extends 'settingbase.html' %}
+{% load static %}
+{% block title %}{{title}}{% endblock title %}
+
+{% block DataArea %}
+
+    <h4>Администраторы</h4>
+
+
+
+    <form action="" method="post">
+   {% csrf_token %}
+     <h5>Удалить администратора: {{data.title}}?</h5>
+<div class="text-end">
+     <button type="submit" class="btn btn-danger btn-sm shadow">Удалить</button>
+     <a href="{% url 'UnitPage' %}" class="btn btn-warning btn-sm shadow">Отмена </a>
+</div>
+    </form>
+
+
+
+
+
+
+{% endblock DataArea %}
+
